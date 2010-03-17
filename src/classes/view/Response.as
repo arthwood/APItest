@@ -1,10 +1,9 @@
 ﻿package view {
 	import flash.display.MovieClip;
-	import flash.geom.Point;
 	import flash.text.TextField;
-	import flash.text.TextFieldAutoSize;
 	import pl.arthwood.components.ContentSimpleVScroll;
-	import pl.arthwood.components.SimpleVScroll;
+	import pl.arthwood.components.Scroll;
+	import pl.arthwood.components.TextScroll;
 	
 	/**
 	 * ...
@@ -12,12 +11,11 @@
 	 */
 	public class Response extends MovieClip	{
 		public var tfText:TextField;
-		public var simpleVScroll:SimpleVScroll;
-		public var contentSimpleVScroll:ContentSimpleVScroll;
+		public var scroll:Scroll;
+		public var textScroll:TextScroll;
 		
 		public function Response() {
-			tfText.autoSize = TextFieldAutoSize.LEFT;
-			contentSimpleVScroll = new ContentSimpleVScroll(simpleVScroll, tfText, new Point(360, 240));
+			textScroll = new TextScroll(tfText, scroll);
 		}
 	}
 }

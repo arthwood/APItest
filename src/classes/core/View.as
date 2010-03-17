@@ -11,6 +11,7 @@
 	import pl.arthwood.components.Input;
 	import pl.arthwood.data.ListItemData;
 	import pl.arthwood.utils.UtilsArray;
+	import pl.arthwood.utils.UtilsString;
 	import view.Response;
 	import view.Spinner;
 	
@@ -52,16 +53,21 @@
 		}
 		
 		private function onSend(e_:MouseEvent):void {
+			var url:String = inputUrl.text;
 			var data:String = inputData.text;
 			var method:String = String(cmbMethod.selectedItem.value);
+			var supportedMethod:Boolean = UtilsArray.isInArray(SUPPORTED_METHODS, method);
 			
-			if (!UtilsArray.isInArray(SUPPORTED_METHODS, method)) {
-				data += ('&_method=' + method);
+			if (!UtilsString.isEmpty(data)) {
+				if (!supportedMethod) {
+					data += ('&_method=' + method);
+				}
+				
+				urlRequest.data = data;
 			}
 			
-			urlRequest.url = inputUrl.text;
-			urlRequest.data = data;
-			urlRequest.method = method;
+			urlRequest.url = url;
+			urlRequest.method = supportedMethod ? method : 'POST';
 			
 			urlLoader.load(urlRequest);
 			
@@ -82,7 +88,7 @@
 			spinner.unspin();
 			
 			response.tfText.text = text_;
-			response.contentSimpleVScroll.updateVisibility();
+			response.textScroll.updateVisibility();
 		}
 	}
 }
