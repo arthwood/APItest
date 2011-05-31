@@ -7,11 +7,11 @@
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
-	import pl.arthwood.components.ComboBox;
-	import pl.arthwood.components.Input;
-	import pl.arthwood.data.ListItemData;
-	import pl.arthwood.utils.UtilsArray;
-	import pl.arthwood.utils.UtilsString;
+	import com.arthwood.components.ComboBox;
+	import com.arthwood.components.Input;
+	import com.arthwood.data.ListItemData;
+	import com.arthwood.utils.UtilsArray;
+	import com.arthwood.utils.UtilsString;
 	import view.Response;
 	import view.Spinner;
 	
@@ -56,7 +56,7 @@
 			var url:String = inputUrl.text;
 			var data:String = inputData.text;
 			var method:String = String(cmbMethod.selectedItem.value);
-			var supportedMethod:Boolean = UtilsArray.isInArray(SUPPORTED_METHODS, method);
+			var supportedMethod:Boolean = UtilsArray.includes(SUPPORTED_METHODS, method);
 			
 			if (!UtilsString.isEmpty(data)) {
 				if (!supportedMethod) {

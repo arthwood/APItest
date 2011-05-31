@@ -1,9 +1,9 @@
 ﻿package view {
 	import flash.display.MovieClip;
 	import flash.text.TextField;
-	import pl.arthwood.components.ContentSimpleVScroll;
-	import pl.arthwood.components.Scroll;
-	import pl.arthwood.components.TextScroll;
+	import com.arthwood.components.ContentSimpleVScroll;
+	import com.arthwood.components.Scroll;
+	import com.arthwood.components.TextScroll;
 	
 	/**
 	 * ...
